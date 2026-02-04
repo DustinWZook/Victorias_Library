@@ -5,7 +5,6 @@ applications:
       phases:
         build:
           commands:
-            - npm ci
             - npm i -g @aws-amplify/cli@latest
             - ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID --outputs-out-dir .
     frontend:
