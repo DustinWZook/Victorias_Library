@@ -8,7 +8,6 @@ import BookDetailsPage from "./pages/BookDetailsPage";
 import LibraryPage from "./pages/LibraryPage";
 import LoansPage from "./pages/LoansPage";
 
-//Test commit
 
 function App() {
   return (
