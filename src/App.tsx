@@ -1,38 +1,23 @@
-// import './App.css';
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Layout from "./components/Layout";
-//
-// import LandingPage from "./pages/LandingPage";
-// import FriendsPage from "./pages/FriendsPage";
-// import BookDetailsPage from "./pages/BookDetailsPage";
-// import LibraryPage from "./pages/LibraryPage";
-// import LoansPage from "./pages/LoansPage";
-//
-//
-// function App() {
-//   return (
-//     <BrowserRouter>
-//         <Routes>
-//             <Route path="/" element={<Layout />}>
-//                 <Route index element={<LandingPage />}></Route>
-//                 <Route path="/library" element={<LibraryPage />}></Route>
-//                 <Route path="/loans" element={<LoansPage />}></Route>
-//                 <Route path="/friends" element={<FriendsPage />}></Route>
-//                 <Route path="/book/:id" element={<BookDetailsPage />}></Route>
-//             </Route>
-//         </Routes>
-//     </BrowserRouter>
-//   )
-// }
-//
-// export default App
-
+import { Authenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
 
 export default function App() {
     return (
-        <div style={{ padding: 24 }}>
-            <h1>App loaded</h1>
-            <p>If you see this, React is mounting.</p>
+        <div style={{
+            minHeight: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 24,
+        }}>
+            <Authenticator>
+                {({ signOut, user }) => (
+                    <main style={{ padding: 24 }}>
+                        <h1>Hello {user?.username}</h1>
+                        <button onClick={signOut}>Sign out</button>
+                    </main>
+                )}
+            </Authenticator>
         </div>
     );
 }
