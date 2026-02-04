@@ -5,16 +5,16 @@ applications:
       phases:
         build:
           commands:
-            - echo "=== BACKEND: node/npm versions ==="
+            - 'echo === BACKEND node and npm versions ==='
             - node -v
             - npm -v
-            - echo "=== BACKEND: install backend-cli (local) ==="
+            - 'echo === BACKEND install backend cli local ==='
             - npm i --no-save --omit=dev --loglevel=error @aws-amplify/backend-cli@latest
-            - echo "=== BACKEND: list ampx binary ==="
+            - 'echo === BACKEND find ampx binary ==='
             - ls -la node_modules/.bin | grep ampx || true
-            - echo "=== BACKEND: ampx version ==="
+            - 'echo === BACKEND ampx version ==='
             - ./node_modules/.bin/ampx --version
-            - echo "=== BACKEND: pipeline deploy ==="
+            - 'echo === BACKEND pipeline deploy ==='
             - ./node_modules/.bin/ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID --outputs-out-dir .
     frontend:
       phases:
@@ -27,7 +27,7 @@ applications:
       artifacts:
         baseDirectory: dist
         files:
-          - "**/*"
+          - '**/*'
       cache:
         paths:
           - node_modules/**/*
